@@ -1,0 +1,60 @@
+name: checkpoint_silver_multiple_query
+config_version: 1.0
+template_name:
+module_name: great_expectations.checkpoint
+class_name: Checkpoint
+run_name_template:
+expectation_suite_name:
+batch_request: {}
+action_list:
+  - name: store_validation_result
+    action:
+      class_name: StoreValidationResultAction
+  - name: store_evaluation_params
+    action:
+      class_name: StoreEvaluationParametersAction
+  - name: update_data_docs
+    action:
+      class_name: UpdateDataDocsAction
+evaluation_parameters: {}
+runtime_configuration: {}
+validations:
+  - batch_request:
+      datasource_name: ge_datasource
+      data_asset_name: silver
+      options:
+        year: 2023
+        month: 10
+        day: 2
+      batch_slice:
+    expectation_suite_name: suite_silver_multiple_query
+  - batch_request:
+      datasource_name: ge_datasource
+      data_asset_name: silver
+      options:
+        year: 2023
+        month: 10
+        day: 3
+      batch_slice:
+    expectation_suite_name: suite_silver_multiple_query
+  - batch_request:
+      datasource_name: ge_datasource
+      data_asset_name: silver
+      options:
+        year: 2023
+        month: 10
+        day: 4
+      batch_slice:
+    expectation_suite_name: suite_silver_multiple_query
+  - batch_request:
+      datasource_name: ge_datasource
+      data_asset_name: silver
+      options:
+        year: 2023
+        month: 10
+        day: 5
+      batch_slice:
+    expectation_suite_name: suite_silver_multiple_query
+profilers: []
+ge_cloud_id:
+expectation_suite_ge_cloud_id:

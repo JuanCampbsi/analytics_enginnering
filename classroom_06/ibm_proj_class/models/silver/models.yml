@@ -1,0 +1,24 @@
+version: 2
+
+models:
+    - name: ibm_prices_silver
+      description: "Camada silver resultados da IBM"
+      columns:
+          - name: datetime
+            description: "Data e hora do resultado"
+            tests:
+              - unique
+              - not_null
+          - name: volume
+            description: "A quantidade total de ações que foram compradas e vendidas durante o período de tempo em questão"
+            tests:
+              - unique
+              - not_null
+              - check_value_is_not_negative
+          - name: high
+            description: "Representa o preço mais alto que a ação atingiu durante o mesmo período de tempo"
+            tests:
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_between:
+                  min_value: 140
+                  max_value: 141

@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: ibm_prices_bronze
+    description: "Camada bronze da tabela de resultados da IBM"
+    columns:
+      - name: datetime
+        description: "Data e hora do resultado"
+        tests:
+          - unique
+          - not_null

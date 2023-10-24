@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: ibm_prices_bronze
+    description: 'Dados IBM - Bronze'
+    database: ada
+    schema: ibm
+    tables:
+      - name: ibm_prices_bronze
+        description: 'Dados dos resultados da IBM - Camada Bronze'
+        

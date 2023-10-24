@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: ibm_prices_silver
+    description: 'Dados IBM - Silver'
+    database: ada
+    schema: ibm
+    tables:
+      - name: ibm_prices_silver
+        description: 'Dados dos resultados da IBM - Camada Silver'
+        

@@ -1,0 +1,40 @@
+version: 2
+
+models:
+    - name: ibm_prices_gold
+      description: "Camada gold resultados da IBM"
+      columns:
+          - name: date
+            description: "Dia resultado"
+            tests:
+              - unique
+              - not_null
+          - name: max_high
+            description: "O valor maximo do high no dia"
+            tests:
+              - unique
+              - not_null
+              - check_value_is_not_negative
+          - name: mean_diff_high_low
+            description: "Representa a diferença média no dia"
+            tests:
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_between:
+                  min_value: -1
+                  max_value: 1
+    - name: ibm_prices_gold_mean_low
+      description: "Camada gold resultados da IBM"
+      columns:
+          - name: date
+            description: "Dia resultado"
+            tests:
+              - unique
+              - not_null
+          - name: mean_high
+            description: "Dia resultado"
+            tests:
+              - unique
+              - not_null
+              - dbt_expectations.expect_column_values_to_be_between:
+                  min_value: 200
+                  max_value: 300

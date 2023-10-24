@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+    - name: ibm_prices_silver
+      description: 'Fonte de dados IBM - silver'
+      database: ada
+      schema: ibm
+      tables:
+          - name: ibm_prices_silver
+            description: 'Dados brutos da IBM na camada silver'
